@@ -1,0 +1,56 @@
+{
+  "input": {
+    "workflow": {
+      "9": {
+        "inputs": {
+          "filename_prefix": "ComfyUI",
+          "images": [
+            "11",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "SaveImage"
+        }
+      },
+      "10": {
+        "inputs": {
+          "filename": "realesrganX4plusAnime_v1.pt"
+        },
+        "class_type": "Upscale Model Loader",
+        "_meta": {
+          "title": "Upscale Model Loader"
+        }
+      },
+      "11": {
+        "inputs": {
+          "upscale_model": [
+            "10",
+            0
+          ],
+          "image": [
+            "13",
+            0
+          ]
+        },
+        "class_type": "ImageUpscaleWithModel",
+        "_meta": {
+          "title": "ImageUpscaleWithModel"
+        }
+      },
+      "13": {
+        "inputs": {
+          "image": [
+            "12",
+            0
+          ]
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "LoadImage"
+        }
+      }
+    }
+  }
+}
