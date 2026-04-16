@@ -1,6 +1,8 @@
 # clean base image containing only comfyui, comfy-cli and comfyui-manager
 FROM runpod/worker-comfyui:5.5.1-base
 
+WRKDIR /ComfyUI
+
 # install custom nodes into comfyui (first node with --mode remote to fetch updated cache)
 RUN comfy node install --exit-on-fail was-ns@3.0.1 --mode remote
 # Could not resolve unknown_registry PrimitiveNode (no aux_id) - skipping
