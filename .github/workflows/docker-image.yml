@@ -22,4 +22,4 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: yourusername/comfyui-worker:latest
+          tags: 0000002550/comfyui-worker:latest
