@@ -12,7 +12,7 @@ RUN printf '#!/bin/bash\n\
 echo "=== DEBUG: filesystem ==="\n\
 ls -lah /runpod-volume || true\n\
 ls -lah /runpod-volume/runpod-slim || true\n\
-ls -lah /runpod-volume/runpod-slim/ComfyUI || true\n
+ls -lah /runpod-volume/runpod-slim/ComfyUI || true\n\
 ls -lah /comfyui/models || true\n\
 ls -lah /comfyui/models/upscale_models || true\n\
 cat /comfyui/extra_model_paths.yaml || true\n\
