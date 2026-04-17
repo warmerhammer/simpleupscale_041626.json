@@ -1,16 +1,11 @@
-# clean base image containing only comfyui, comfy-cli and comfyui-manager
 FROM runpod/worker-comfyui:5.5.1-base
 
 WORKDIR /comfyui
 
-# install custom nodes into comfyui (first node with --mode remote to fetch updated cache)
-RUN comfy node install --exit-on-fail was-ns@3.0.1 --mode remote
-# Could not resolve unknown_registry PrimitiveNode (no aux_id) - skipping
+# Copy extra_model_paths.yaml with correct absolute paths
+COPY extra_model_paths.yaml /comfyui/extra_model_paths.yaml
 
-# Install Python deps if provided
-RUN if [ -f /comfyui/custom_nodes/was-ns/requirements.txt ]; then \
-      pip install --no-cache-dir -r /comfyui/custom_nodes/was-ns/requirements.txt; \
-    fi
+# Create startup script that symlinks was-ns from volume then starts ComfyUI
+RUN printf '#!/bin/bash\nln -sf /runpod-volume/workspace/runpod-slim/ComfyUI/custom_nodes/was-ns /comfyui/custom_nodes/was-ns\nexec /start.sh' > /start_custom.sh && chmod +x /start_custom.sh
 
-# copy all input data (like images or videos) into comfyui (uncomment and adjust if needed)
-# COPY input/ /comfyui/input/
+CMD ["/start_custom.sh"]
