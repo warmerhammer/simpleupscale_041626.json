@@ -1,5 +1,5 @@
 image_viewer_runpod_volume:
-    base_path: /runpod-volume/workspace/runpod-slim/ComfyUI/
+    base_path: /runpod-volume/runpod-slim/workspace/runpod-slim/ComfyUI/
     checkpoints: models/checkpoints/
     clip: models/clip/
     clip_vision: models/clip_vision/
