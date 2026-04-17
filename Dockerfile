@@ -1,11 +1,9 @@
-FROM runpod/worker-comfyui:5.5.1-base
+FROM runpod/worker-comfyui:6.0.0-base
 
 WORKDIR /comfyui
 
-# Copy extra_model_paths.yaml with correct absolute paths
 COPY extra_model_paths.yaml /comfyui/extra_model_paths.yaml
 
-# Create startup script that symlinks was-ns from volume then starts ComfyUI
-RUN printf '#!/bin/bash\nln -sf /runpod-volume/workspace/runpod-slim/ComfyUI/custom_nodes/was-ns /comfyui/custom_nodes/was-ns\nexec /start.sh' > /start_custom.sh && chmod +x /start_custom.sh
+RUN printf '#!/bin/bash\necho "=== Checking volume ==="\nls /runpod-volume/workspace/runpod-slim/ComfyUI/custom_nodes/ || echo "Volume path not found"\necho "=== Symlinking was-ns ==="\nln -sf /runpod-volume/workspace/runpod-slim/ComfyUI/custom_nodes/was-ns /comfyui/custom_nodes/was-ns\necho "=== Checking custom_nodes ==="\nls /comfyui/custom_nodes/\necho "=== Starting ComfyUI ==="\nexec /start.sh' > /start_custom.sh && chmod +x /start_custom.sh
 
 CMD ["/start_custom.sh"]
