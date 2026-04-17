@@ -1,4 +1,4 @@
-FROM runpod/worker-comfyui:6.8.5-base
+FROM runpod/worker-comfyui:5.8.5-base
 
 WORKDIR /comfyui
 
