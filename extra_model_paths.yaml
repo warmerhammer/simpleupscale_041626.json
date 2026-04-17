@@ -1,0 +1,12 @@
+image_viewer_runpod_volume:
+    base_path: /runpod-volume/workspace/runpod-slim/ComfyUI/
+    checkpoints: models/checkpoints/
+    clip: models/clip/
+    clip_vision: models/clip_vision/
+    configs: models/configs/
+    controlnet: models/controlnet/
+    diffusers: models/diffusers/
+    embeddings: models/embeddings/
+    loras: models/loras/
+    upscale_models: models/upscale_models/
+    vae: models/vae/
