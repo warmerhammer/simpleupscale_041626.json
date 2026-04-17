@@ -11,6 +11,6 @@ RUN rm -rf /comfyui/custom_nodes/was-ns && \
 # Pre-install opencv so was-node-suite doesn't try to install it at runtime
 RUN pip install opencv-python-headless --upgrade
 
-RUN printf '#!/bin/bash\nexec /start.sh' > /start_custom.sh && chmod +x /start_custom.sh
+RUN printf '#!/bin/bash\necho "=== Checking upscale models ==="\nls /runpod-volume/workspace/runpod-slim/ComfyUI/models/upscale_models/ || echo "Path not found"\nexec /start.sh' > /start_custom.sh && chmod +x /start_custom.sh
 
 CMD ["/start_custom.sh"]
