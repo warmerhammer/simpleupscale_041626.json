@@ -27,4 +27,4 @@ echo "=== Starting ComfyUI ==="\n\
 exec /start.sh\n\
 ' > /start_custom.sh && chmod +x /start_custom.sh
 
-CMD ["/start_custom.sh"]
+ENTRYPOINT ["/start_custom.sh"]
