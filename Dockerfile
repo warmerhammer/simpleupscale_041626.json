@@ -2,8 +2,7 @@ FROM runpod/worker-comfyui:5.8.5-base
 
 WORKDIR /comfyui
 
-Remove incompatible was-ns and install fresh version
-
+# Remove incompatible was-ns and install fresh version
 RUN comfy node install --exit-on-fail was-ns@3.0.1 --mode remote
 
 # Pre-install opencv
