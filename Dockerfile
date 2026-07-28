@@ -2,7 +2,7 @@ FROM runpod/worker-comfyui:5.8.5-base
 WORKDIR /comfyui
 COPY extra_model_paths.yaml /comfyui/extra_model_paths.yaml
 
-RUN comfy node install --exit-on-fail was-ns@3.0.1 --mode remote
+RUN comfy node install --exit-on-fail was-ns@3.0.1 efficiency-nodes-comfyui@1.0.9 --mode remote
 
 RUN python -m pip install --no-cache-dir --upgrade pip \
  && python -m pip install --no-cache-dir opencv-python-headless \
