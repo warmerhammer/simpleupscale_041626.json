@@ -22,4 +22,4 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: 0000002550/comfyui-worker:${{ github.run_number }}
+          tags: imgvwr/comfyui-worker:${{ github.run_number }}
