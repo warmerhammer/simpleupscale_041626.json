@@ -11,3 +11,4 @@ image_viewer_runpod_volume:
     text_encoders: models/text_encoders/
     upscale_models: models/upscale_models/
     vae: models/vae/
+    segm: models/ultralytics/segm
