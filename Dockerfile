@@ -24,6 +24,7 @@ ln -sf /runpod-volume/workspace/runpod-slim/ComfyUI/models/vae /comfyui/models/v
 ln -sf /runpod-volume/workspace/runpod-slim/ComfyUI/models/controlnet /comfyui/models/controlnet\n\
 ln -sf /runpod-volume/workspace/runpod-slim/ComfyUI/models/clip /comfyui/models/clip\n\
 ln -sf /runpod-volume/workspace/runpod-slim/ComfyUI/models/embeddings /comfyui/models/embeddings\n\
+ln -sf /runpod-volume/workspace/runpod-slim/ComfyUI/models/ultralytics/segm /comfyui/models/ultralytics/segm\n\
 echo "=== Starting ComfyUI ==="\n\
 exec /start.sh\n\
 ' > /start_custom.sh && chmod +x /start_custom.sh
