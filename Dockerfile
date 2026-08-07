@@ -1,4 +1,4 @@
-FROM runpod/worker-comfyui:5.8.5-base
+FROM runpod/worker-comfyui:5.8.5-base@sha256:213207736b15c74e3ba17b19a4afdff18b832d4f5b1bbff765d9c99b1b3f00f0
 WORKDIR /comfyui
 COPY extra_model_paths.yaml /comfyui/extra_model_paths.yaml
 
