@@ -7,13 +7,15 @@ RUN comfy node install --exit-on-fail comfyui-impact-subpack@1.3.5 --mode remote
 RUN comfy node install --exit-on-fail was-ns@3.0.1 efficiency-nodes-comfyui@1.0.9 comfyui-advanced-controlnet@1.6.0 comfyui_controlnet_aux@1.1.5 --mode remote
 
 RUN mkdir -p /comfyui/user/default/ComfyUI-Impact-Subpack \
- && echo "unwantedV10x" > /comfyui/user/default/ComfyUI-Impact-Subpack/model-whitelist.txt
+ && printf "unwantedV10x\nunwantedV10x.pt\nsegm/unwantedV10x.pt\n" > /comfyui/user/default/ComfyUI-Impact-Subpack/model-whitelist.txt
 
 RUN python -m pip install --no-cache-dir --upgrade pip \
  && python -m pip install --no-cache-dir opencv-python-headless \
  && rm -rf /root/.cache/pip
 
 RUN printf '#!/bin/bash\n\
+echo "=== DEBUG: whitelist file ==="\n\
+cat /comfyui/user/default/ComfyUI-Impact-Subpack/model-whitelist.txt || echo "WHITELIST FILE MISSING"\n\
 echo "=== DEBUG: filesystem ==="\n\
 ls -lah /runpod-volume || true\n\
 ls -lah /runpod-volume/runpod-slim || true\n\
